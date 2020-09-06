@@ -39,6 +39,7 @@ app.listen(port_express, '0.0.0.0', function () {
 app.post('/', function (req, res) {
     // TODO: send data to the front page
     console.log("Request received!");
+    res.send("hello world!")
 });
 
 

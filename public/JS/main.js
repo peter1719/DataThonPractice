@@ -170,3 +170,21 @@ let appChart = new Vue({
         }
     }
 })
+
+let appButton = new Vue({
+    el: "#appButton",
+    data: {
+        text: "Get data from server"
+    },
+    methods: {
+        postRequest() {
+            axios.post('/').then(response => {
+                console.log(response)
+                this.text = response.data
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+    }
+
+})
