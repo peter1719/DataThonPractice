@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "echarts": "^4.9.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "vue": "^2.6.12",
+    "vue-echarts": "^5.0.0-beta.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "peter1719",
+  "license": "ISC"
+}

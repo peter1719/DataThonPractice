@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="CSS/w3.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="CSS/stysle.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/v-charts/lib/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/v-charts/lib/style.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=[API KEY]4&libraries=places"></script>
+    <title>數據松呈現練習 V1</title>
+</head>
+<!-- ----------------------------------------------------------------------- -->
+
+<body>
+    <div class="w3-display-container w3-bar w3-theme-action w3-black" id="menu">
+        <img src="SOURCE/logo.png" id="logo">
+        <h1 id="logo_text">PurChaser</h1>
+        <nav class="w3-display-bottomright" id="menu_buttons">
+            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-action">Main Board</a>
+            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-action">Analysis & Trend</a>
+            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-action">About</a>
+        </nav>
+    </div>
+
+    <div id="container">
+        <div id="app">
+            <div class="row">
+                <data_card v-for="info in infos" v-bind:title="info.title" v-bind:info="info.info"></data_card>
+            </div>
+        </div>
+        <div id="appMap" class="row map">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <div class="row w3-display-container">
+                                <h4 class="col-sm-6">MAP</h4>
+                                <div class="input-group col-sm-3 w3-display-right">
+                                    <input id="pac-input" type="text" class="form-control" placeholder="Search Place"
+                                        v-model="input_place">
+                                </div>
+                            </div>
+                            <hr class="solid">
+                        </div>
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="appChart" class="row chart">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Chart</h4>
+                        <hr class="solid">
+                        <ve-line id="chartBlock" :data="chartData"></ve-line>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+
+
+
+
+</body>
+
+<script src="JS/main.js"></script>
+
+</html>
